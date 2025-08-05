@@ -53,7 +53,7 @@ Isso irá iniciar o banco de dados (PostgreSQL) com as configurações definidas
 1. Vá para a pasta do backend:
 
    ```bash
-   cd backend
+   cd Api
    ```
 
 2. Restaure as dependências:
@@ -82,7 +82,7 @@ A API estará disponível em `https://localhost:5159` (ajuste conforme seu `laun
 1. Vá para a pasta do frontend:
 
    ```bash
-   cd frontend
+   cd Frontend
    ```
 
 2. Instale as dependências:
