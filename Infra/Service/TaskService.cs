@@ -7,6 +7,8 @@ namespace Infra.Service
     {
         public void Create(Task task)
         {
+            task.Creation = DateTime.UtcNow;
+            task.Conclusion = null;
             _repository.Add(task);
         }
 
@@ -25,9 +27,19 @@ namespace Infra.Service
             _repository.Remove(taskId);
         }
 
-        public void Update(Task oldTask, Task newTask)
+        public void Update(Task newTask)
         {
-            _repository.Update(newTask);
+            Task task = _repository.GetById(newTask.Id);
+            task.Title = newTask.Title;
+            task.Description = newTask.Description;
+            _repository.Update(task);
+        }
+        public void TaksCompleted(long taskId)
+        {
+            Task task = _repository.GetById(taskId);
+            task.Completed = true;
+            task.Conclusion = DateTime.UtcNow;
+            _repository.Update(task);
         }
     }
 }

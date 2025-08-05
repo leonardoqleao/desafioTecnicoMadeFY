@@ -1,4 +1,5 @@
-﻿using Infra.Service.Interface;
+﻿using Infra.DTO;
+using Infra.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Task = Infra.Model.Task;
 
@@ -17,9 +18,13 @@ namespace Api.Controllers
 
         [HttpPost]
         [ProducesResponseType((200))]
-        public IActionResult Create([FromBody] Task task)
+        public IActionResult Create([FromBody] CreateTaskDTO task)
         {
-            _taskService.Create(task);
+            _taskService.Create(new Task
+            {
+                Title = task.Title,
+                Description = task.Description,
+            });
             return Ok();
         }
 
@@ -33,9 +38,14 @@ namespace Api.Controllers
 
         [HttpPut]
         [ProducesResponseType((200))]
-        public IActionResult Update([FromBody] Task newTask)
+        public IActionResult Update([FromBody] UpdateTaskDTO task)
         {
-            _taskService.Update(newTask, newTask);
+            _taskService.Update(new Task
+            {
+                Id = task.Id,
+                Title = task.Title,
+                Description = task.Description,
+            });
             return Ok();
         }
 
@@ -44,6 +54,14 @@ namespace Api.Controllers
         public IActionResult GetAll()
         {
             return Ok(_taskService.GetAll());
+        }
+
+        [HttpPatch("{taskid}/toggle")]
+        [ProducesResponseType((200))]
+        public IActionResult ToggleCompletedTask(long taskid)
+        {
+            _taskService.TaksCompleted(taskid);
+            return Ok();
         }
     }
 }

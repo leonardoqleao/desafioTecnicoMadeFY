@@ -6,7 +6,8 @@ namespace Infra.Service.Interface
     {
         void Create(Task task);
         void Remove(long taskId);
-        void Update(Task oldTask, Task newTask);
+        void Update(Task newTask);
+        void TaksCompleted(long taskId);
         Task Find(long taskId);
         IEnumerable<Task> GetAll();
     }

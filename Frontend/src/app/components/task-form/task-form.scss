@@ -1,0 +1,60 @@
+
+.task-form-container {
+  padding: 0;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+}
+
+.form-container {
+  padding: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-card-header mat-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+mat-card-actions {
+  padding: 16px;
+  gap: 8px;
+}
+
+mat-card-actions button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 8px;
+  }
+  
+  mat-card-actions {
+    flex-direction: column;
+  }
+  
+  mat-card-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
