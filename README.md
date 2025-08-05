@@ -30,7 +30,7 @@ Certifique-se de ter instalado:
 - [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download)
 - [Node.js (v18+ recomendado)](https://nodejs.org/)
 - [Angular CLI](https://angular.io/cli):  
-  ```bash
+```bash
   npm install -g @angular/cli
 ````
 
